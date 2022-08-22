@@ -9,7 +9,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 function App() {
   return (
     <div >
-      <Navigator/>
+      <Navigator Name={'KT'}/>
     </div>
         
   );

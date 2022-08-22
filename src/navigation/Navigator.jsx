@@ -10,17 +10,18 @@ import WWMap from "../routes/WWMap"
 import About from "../routes/About"
 import { navData, styles } from "./Navigator.js"
 import { IconContext } from "react-icons";
+import Header from "../components/Header";
 
 
 
-function Navigator() {
+function Navigator({Name}) {
 
     const history = useNavigate();
 
 
     return (
         <div>
-
+            <Header Name={Name}/>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
