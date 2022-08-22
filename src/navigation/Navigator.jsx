@@ -8,7 +8,7 @@ import Map from "../routes/Map"
 import Inform from "../routes/Inform"
 import WWMap from "../routes/WWMap"
 import About from "../routes/About"
-import { styles } from "./Navigator.js"
+import { navData, styles } from "./Navigator.js"
 
 
 
@@ -28,8 +28,6 @@ function Navigator() {
                 <Route path="wwmap" element={<WWMap />} />
                 <Route path="about" element={<About />} />
             </Routes>
-
-
             <SideNav
                 onSelect={(selected) => {
                     history(`/` + `${selected}`)
@@ -38,67 +36,29 @@ function Navigator() {
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="home">
 
-                    <NavItem eventKey="home">
-                        <NavIcon>
-                            <div style={styles.iconCont}>
-                                <img src={require("../asset/home.png")} style={styles.iconPic} />
-                            </div>
-                        </NavIcon>
-                        <NavText>
-                            Home
-                        </NavText>
-                    </NavItem>
-
-                    <NavItem eventKey="inform">
-                        <NavIcon>
-                            <div style={styles.iconCont}>
-                                <img src={require("../asset/inform.png")} style={styles.iconPic} />
-                            </div>
-                        </NavIcon>
-                        <NavText>
-                            Information
-                        </NavText>
-                    </NavItem>
-
-                    <NavItem eventKey="map">
-                        <NavIcon>
-                            <div style={styles.iconCont}>
-                                <img src={require("../asset/map.png")} style={styles.iconPic} />
-                            </div>
-                        </NavIcon>
-                        <NavText>
-                            Thai Map
-                        </NavText>
-                    </NavItem>
-
-                    <NavItem eventKey="wwmap">
-                        <NavIcon>
-                            <div style={styles.iconCont}>
-                                <img src={require("../asset/acc.png")} style={styles.iconPic} />
-                            </div>
-                        </NavIcon>
-                        <NavText>
-                            World Wide Map
-                        </NavText>
-                    </NavItem>
-
-                    <NavItem eventKey="about">
-                        <NavIcon>
-                            <div style={styles.iconCont}>
-                                <img src={require("../asset/setting.png")} style={styles.iconPic} />
-                            </div>
-                        </NavIcon>
-                        <NavText>
-                            About
-                        </NavText>
-                    </NavItem>
+                    {navData.map((item, index) => {
+                        return (
+                            <NavItem eventKey={item.name}>
+                                <NavIcon>
+                                    <div style={styles.iconCont}>
+                                        <div>
+                                            {item.icon}
+                                        </div>
+                                    </div>
+                                </NavIcon>
+                                <NavText>
+                                    {item.title}
+                                </NavText>
+                            </NavItem>
+                        )
+                    })}
 
                 </SideNav.Nav>
             </SideNav>
         </div>
     );
 
-    
+
 }
 
 
