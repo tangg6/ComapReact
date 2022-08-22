@@ -1,8 +1,11 @@
 import React from 'react'
+import {styles} from './GlobalStyle'
+
 
 function Inform() {
   return (
-    <div>Inform</div>
+    <div className='container' style={styles.container}>
+      Inform</div>
   )
 }
 

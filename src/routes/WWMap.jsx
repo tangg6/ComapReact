@@ -1,8 +1,10 @@
 import React from 'react'
+import {styles} from './GlobalStyle'
+
 
 function WWMap() {
   return (
-    <div>WWMap</div>
+    <div className='container' style={styles.container}>WWMap</div>
   )
 }
 
