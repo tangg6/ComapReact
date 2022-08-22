@@ -9,6 +9,7 @@ import Inform from "../routes/Inform"
 import WWMap from "../routes/WWMap"
 import About from "../routes/About"
 import { navData, styles } from "./Navigator.js"
+import { IconContext } from "react-icons";
 
 
 
@@ -41,9 +42,9 @@ function Navigator() {
                             <NavItem eventKey={item.name}>
                                 <NavIcon>
                                     <div style={styles.iconCont}>
-                                        <div>
+                                        <IconContext.Provider value={styles.iconPic}>
                                             {item.icon}
-                                        </div>
+                                        </IconContext.Provider>
                                     </div>
                                 </NavIcon>
                                 <NavText>
